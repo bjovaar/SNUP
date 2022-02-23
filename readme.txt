@@ -39,8 +39,9 @@ Ex. If your Wordpress is using English language the plugin will load the English
 
 == Screenshots ==
 
-1. https://vaarvik.com/snup-widget/snup_front.JPG
-2. https://vaarvik.com/snup-widget/snup_addpost.JPG
+1. https://github.com/bjovaar/SNUP/blob/main/assets/images/screenshot-1.JPG
+2. https://github.com/bjovaar/SNUP/blob/main/assets/images/screenshot-2.JPG
+3. https://github.com/bjovaar/SNUP/blob/main/assets/images/screenshot-3.JPG
 
 
 
