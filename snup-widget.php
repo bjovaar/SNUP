@@ -119,13 +119,13 @@ function snup_upcoming_posts_dashboard() {
  
 // The loop to display posts
 if ( $the_query->have_posts() ) {
-    echo wp_kses('<ul>');
+    echo '<ul>';
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
         $output .= ''. ' <div class="snup_title_dash"> '. get_the_title() .' </div><div class="snup_published_dash"> '. __('Published', 'snup-lang') . '</div><div class="snup_time_dash"> '.  get_the_time('d.m.Y H:i') .') </div><br>';
 
     }
-    echo wp_kses('</ul>');
+    echo '</ul>';
  
 } else {
     // Show this when no future posts are found
@@ -195,7 +195,7 @@ $title = __( 'New title', 'snup-lang' );
 ?>
 <p>
 <label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php _e( 'Title:' ); ?></label> 
-<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echoesc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 </p>
 <?php 
 }
