@@ -119,13 +119,13 @@ function snup_upcoming_posts_dashboard() {
  
 // The loop to display posts
 if ( $the_query->have_posts() ) {
-    echo '<ul>';
+    echo wp_kses_post('<ul>');
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
         $output .= ''. ' <div class="snup_title_dash"> '. get_the_title() .' </div><div class="snup_published_dash"> '. __('Published', 'snup-lang') . '</div><div class="snup_time_dash"> '.  get_the_time('d.m.Y H:i') .') </div><br>';
 
     }
-    echo '</ul>';
+    echo wp_kses_post('<ul>');
  
 } else {
     // Show this when no future posts are found
@@ -172,9 +172,9 @@ public function widget( $args, $instance ) {
 $title = apply_filters( 'widget_title', $instance['title'] );
   
 // before and after widget arguments are defined by themes
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . $title . $args['after_title'];
+echo wp_kses_post($args['before_title'] . $title . $args['after_title']);
 
   
 // This is where you run the code and display the output
