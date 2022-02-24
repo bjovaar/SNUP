@@ -20,6 +20,11 @@
  * Domain path:  /languages
  */
 
+
+
+
+
+
 /**
  * Plugin version
  */
@@ -38,7 +43,7 @@ function get_my_version() {
  */
 
 function snupwidget_enqueue_scripts() {
-   wp_enqueue_style('custom-style', plugins_url( '/includes/style.css', __FILE__ ), array(),'all');
+   wp_enqueue_style('custom-style', plugins_url( '/assets/css/style.css', __FILE__ ), array(),'all');
 }
 add_action( 'wp_enqueue_scripts', 'snupwidget_enqueue_scripts' );
 
@@ -114,13 +119,13 @@ function snup_upcoming_posts_dashboard() {
  
 // The loop to display posts
 if ( $the_query->have_posts() ) {
-    echo '<ul>';
+    echo wp_kses('<ul>');
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
         $output .= ''. ' <div class="snup_title_dash"> '. get_the_title() .' </div><div class="snup_published_dash"> '. __('Published', 'snup-lang') . '</div><div class="snup_time_dash"> '.  get_the_time('d.m.Y H:i') .') </div><br>';
 
     }
-    echo '</ul>';
+    echo wp_kses('</ul>');
  
 } else {
     // Show this when no future posts are found
@@ -211,6 +216,7 @@ function snup_load_widget() {
     register_widget( 'snup_widget' );
 }
 add_action( 'widgets_init', 'snup_load_widget' );
+
 
 
 
