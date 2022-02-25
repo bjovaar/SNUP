@@ -28,7 +28,7 @@
 /**
  * Plugin version
  */
-function get_my_version() {
+function get_snup_version() {
     if (!function_exists('get_plugin_data')) {      
         include_once( ABSPATH . 'wp-admin/includes/plugin.php');
     }
@@ -98,7 +98,7 @@ function snup_dashboard_widget_function( $post, $callback_args ) {
     $label3=__('Your current version of SNUP is:', 'snup-lang');
 ?>
     <p>
-    <label><?php echo esc_html_e($label3), "\n\n\n", get_my_version();?></label><br>
+    <label><?php echo esc_html_e($label3), "\n\n\n", get_snup_version();?></label><br>
     </p>
 <?php
 }
