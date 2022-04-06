@@ -12,7 +12,7 @@
  * Plugin Name: Show Next Upcoming Post (SNUP Widget)
  * Plugin URI: http://www.vaarvik.com/snup-widget
  * Description: Show a teaser of the next upcoming post
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: Bjorn Inge Vaarvik
  * Author URI: http://www.vaarvik.com
  * Contributor:  Werner A. Bischler
@@ -68,11 +68,11 @@ add_action( 'plugins_loaded', 'snupwidget_init' );
 */
 
 if ( ! defined( 'SNUP_PLUGIN_DIR' ) ) {
-	define( 'SNUP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+    define( 'SNUP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
 
 if ( ! defined( 'SNUP_PLUGIN_URL' ) ) {
-	define( 'SNUP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+    define( 'SNUP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
 
@@ -287,13 +287,14 @@ function snup_save_meta($post_id) {
     }
 
     
-    //Sanitize user input.
-    $snuptext = sanitize_text_field( $_POST['snuptext'] );
+//Sanitize user input.
+    $snuptext = sanitize_textarea_field( $_POST['snuptext'] );
 
 
-    //Update the meta field in the databse.
+//Update the meta field in the databse.
     update_post_meta( $post_id, 'snuptext', $snuptext );
 }
+
 
 add_action( 'save_post', 'snup_save_meta' );
 
@@ -308,34 +309,52 @@ function snupwidget_upcoming_posts() {
     $output = '';
 
     // The query to fetch future posts
-    $the_query = new WP_Query(array( 
+    $the_query = new WP_Query(array(
         'post_status' => 'future',
         'posts_per_page' => 1,
         'orderby' => 'date',
         'order' => 'ASC'
-    ));
+      ));
  
 
 // The loop to display posts
-if ( $the_query->have_posts() ) {
-    $output .='<ul>';
-    while ( $the_query->have_posts()) : $the_query-> the_post();
-        $output .= ''. get_the_post_thumbnail() .' <div class="snup_title"> '. get_the_title() .' </div><div class="snup_text"> '. get_post_meta( get_the_id(), 'snuptext', true ). ' </div><div class="snup_published"> '. __('Published', 'snup-lang') . '</div><div class="snup_time"> '.  get_the_time('d.m.Y H:i') .') </div>';
-    endwhile;
-    $output .='</ul>';
-
-} else {
-    // Show this when no future posts are found
-    $output .= '<div class="snup_noplan"> '. __('No planed posts yet.', 'snup-lang') . '</div>';
-}
-// Reset post data
-wp_reset_postdata();
- 
-// Return output
- 
-return $output; 
+if ( ! $the_query->posts ) {
+  return sprintf(
+    '<div class="snup_noplan">%s</div>',
+    esc_html__('No planned posts yet.', 'snup-lang')
+  );
 }
 
+$items = array();
+foreach ($the_query->posts as $post) {
+
+  $snuptext = get_post_meta( $post->ID, 'snuptext', true );
+  if ( $snuptext && is_string( $snuptext ) ) {
+    $snuptext = str_replace(array("\r\n", "\r", "\n"), "<br />", $snuptext);
+  } else {
+    $snuptext = '';
+  }
+  
+  $items[] = sprintf(
+    '<li>
+      %s
+      <div class="snup_title">%s</div>
+      <div class="snup_text">%s</div>
+      <div class="snup_published">%s</div>
+      <div class="snup_day">%s</div> 
+      <div class="snup_time">%s</div>
+    </li>',
+    get_the_post_thumbnail($post),
+    esc_html( $post->post_title ),
+    esc_html( $snuptext ),
+    esc_html__('Published:', 'snup-lang'),
+    get_the_time(strtotime($DateValue), 'snup-lang'), 
+    get_the_time('l d.m.Y H:i', $post)
+  );
+}
+
+return sprintf('<ul>%s</ul>', implode('', $items));
+}
  
 
 
