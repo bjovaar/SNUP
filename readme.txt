@@ -6,7 +6,7 @@ Author URI: http://www.vaarvik.com
 Contributors: Werner A. Bischler (Github: w-a-b)
 Donate link: https://example.com/
 Tags: post, upcoming, next, preview
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Tested up to: 5.9
 Requires at least: 5.2
 Requires PHP: 7.0
