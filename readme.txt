@@ -14,11 +14,11 @@ Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
-SNUP-Widget Plugin for Wordpress that the show next upcoming post, featured image, title and teaser text and published date.
+SNUP-Widget Plugin for Wordpress that the show next upcoming post, featured image, teaser text and published date.
 
 == Description ==
 
-The plugin will show the next planed post with the featured image, a custom made teaser title and teaser text from a text field where you create new post and the publishing date and time.
+The plugin will show the next planed post with the featured image, a custom made text from a text field where you create new post and the publishing date and time.
 
 The plugin has language files for English, Norwegian<br><br>
 
@@ -29,10 +29,10 @@ The plugin has language files for English, Norwegian<br><br>
 After installing and activate the plugin. <br>
 Add the SNUP widget from the Widget menu. <br> 
 Create a new post. Write your text as normal. <br>
-In the new field ("Show Next Upcoming Post") below the text field for the post you can add a teaser title and a teaser text. <br>
+In the new field ("Show Next Upcoming Post") below the text field for the post you can add a teaser text. <br>
 You add a featured image. <br>
 Add a planned date for the posting, and press "Planned". <br>
-This teaser title and teaser text will not show up when the post is published. <br><br>
+This teaser text will not show up when the post is published. <br><br>
 
 = Now the plugin is in english. Can I change the language ? =
 
@@ -89,6 +89,14 @@ The plugin has English, Norwegian files. <br><br>
 
 == Upgrade Notice ==
 
+= 1.3.0 =
+Add custom title for SNUP
+Remove POST title in SNUP Widget, only use custom title.
+Minor bug fixes
+
+= 1.2.2 =
+Minor Upgrades
+
 = 1.2.1 =
 This is the first offical version online.
 
@@ -98,12 +106,12 @@ This is the first offical version online.
 Ordered list:
 
 1. Show post title
-1. Show custom title in widget
-1. Show featured image
-1. Show custom made teaser text
-1. Show planned publishing date and time
-1. Easy to add SNUP as a widget from widget menu
-1. Show the next 5 planned posts on the widget at the dashboard
+2. Show custom title in widget
+3. Show featured image
+4. Show custom made teaser text
+5. Show planned publishing date and time
+6. Easy to add SNUP as a widget from widget menu
+7. Show the next 5 planned posts on the widget at the dashboard
 
 Unordered list:
 
