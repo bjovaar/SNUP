@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Show Next Upcoming Post (SNUP Widget)\n"
-"POT-Creation-Date: 2022-02-22 21:14+0100\n"
-"PO-Revision-Date: 2022-02-22 21:16+0100\n"
+"POT-Creation-Date: 2022-04-08 13:58+0200\n"
+"PO-Revision-Date: 2022-04-08 14:01+0200\n"
 "Last-Translator: Bjørn Inge Vårvik <bjovaar@gmail.com>\n"
 "Language-Team: Bjørn Inge Vårvik <bjovaar@gmail.com>\n"
 "Language: nb_NO\n"
@@ -15,41 +15,63 @@ msgstr ""
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: snup-widget.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: snup-widget.php:94 snup-widget.php:291
+#: snup-widget.php:98
+msgid "Your current version of SNUP is:"
+msgstr ""
+
+#: snup-widget.php:125
 msgid "Published"
 msgstr "Publiseres"
 
-#: snup-widget.php:101 snup-widget.php:297
+#: snup-widget.php:132
 msgid "No planed posts yet."
 msgstr "Ingen planlagte innlegg enda."
 
-#: snup-widget.php:131
+#: snup-widget.php:162
 msgid "SNUP Widget"
 msgstr ""
 
-#: snup-widget.php:134
+#: snup-widget.php:165
 msgid "Show Next Upcoming Post"
 msgstr "Vis neste kommende innlegg"
 
-#: snup-widget.php:160
+#: snup-widget.php:191
 msgid "New title"
 msgstr "Ny tittel"
 
-#: snup-widget.php:166
+#: snup-widget.php:197
 msgid "Title:"
 msgstr "Tittel:"
 
-#: snup-widget.php:216
+#: snup-widget.php:249
 msgid "Please type the teaser text here"
 msgstr "Vennligst skriv en liten sniktitt for dette innlegget"
 
-#: snup-widget.php:217
+#: snup-widget.php:250
 msgid "Max 100 characters."
 msgstr "Maks 100 tegn."
+
+#: snup-widget.php:251
+msgid "Custom teaser title."
+msgstr "Tittel for sniktitten."
+
+#: snup-widget.php:252
+msgid "Show only in the SNUP Widget until the post is published."
+msgstr "Vises kun i SNUP-widgeten til innlegget er publisert."
+
+#: snup-widget.php:335
+msgid "No planned posts yet."
+msgstr "Ingen planlagte innlegg enda."
+
+#: snup-widget.php:363
+msgid "Published:"
+msgstr "Publiseres:"
 
 #. Plugin Name of the plugin/theme
 msgid "Show Next Upcoming Post (SNUP Widget)"

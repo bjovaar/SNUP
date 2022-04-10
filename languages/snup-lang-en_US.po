@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Show Next Upcoming Post (SNUP Widget)\n"
-"POT-Creation-Date: 2022-02-22 21:14+0100\n"
-"PO-Revision-Date: 2022-02-22 21:15+0100\n"
+"POT-Creation-Date: 2022-04-08 14:20+0200\n"
+"PO-Revision-Date: 2022-04-08 14:20+0200\n"
 "Last-Translator: Bjørn Inge Vårvik <bjovaar@gmail.com>\n"
 "Language-Team: Bjørn Inge Vårvik <bjovaar@gmail.com>\n"
 "Language: en_US\n"
@@ -15,40 +15,62 @@ msgstr ""
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: snup-widget.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: snup-widget.php:94 snup-widget.php:291
+#: snup-widget.php:98
+msgid "Your current version of SNUP is:"
+msgstr ""
+
+#: snup-widget.php:125
 msgid "Published"
 msgstr ""
 
-#: snup-widget.php:101 snup-widget.php:297
+#: snup-widget.php:132
 msgid "No planed posts yet."
 msgstr ""
 
-#: snup-widget.php:131
+#: snup-widget.php:162
 msgid "SNUP Widget"
 msgstr ""
 
-#: snup-widget.php:134
+#: snup-widget.php:165
 msgid "Show Next Upcoming Post"
 msgstr ""
 
-#: snup-widget.php:160
+#: snup-widget.php:191
 msgid "New title"
 msgstr ""
 
-#: snup-widget.php:166
+#: snup-widget.php:197
 msgid "Title:"
 msgstr ""
 
-#: snup-widget.php:216
+#: snup-widget.php:249
 msgid "Please type the teaser text here"
 msgstr ""
 
-#: snup-widget.php:217
+#: snup-widget.php:250
 msgid "Max 100 characters."
+msgstr ""
+
+#: snup-widget.php:251
+msgid "Custom teaser title."
+msgstr ""
+
+#: snup-widget.php:252
+msgid "Show only in the SNUP Widget until the post is published."
+msgstr ""
+
+#: snup-widget.php:335
+msgid "No planned posts yet."
+msgstr ""
+
+#: snup-widget.php:363
+msgid "Published:"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

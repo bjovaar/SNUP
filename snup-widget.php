@@ -12,7 +12,7 @@
  * Plugin Name: Show Next Upcoming Post (SNUP Widget)
  * Plugin URI: http://www.vaarvik.com/snup-widget
  * Description: Show a teaser of the next upcoming post
- * Version: 1.2.2
+ * Version: 1.3.0
  * Author: Bjorn Inge Vaarvik
  * Author URI: http://www.vaarvik.com
  * Contributor:  Werner A. Bischler
@@ -245,14 +245,20 @@ function snup_callback($post){
     wp_nonce_field('snup_meta_box', 'snup_meta_box_nonce');
 
 $snuptext = get_post_meta($post->ID, 'snuptext', true);
+$snup_custom_title = get_post_meta($post->ID, 'snup_custom_title', true);
 $label1=__('Please type the teaser text here','snup-lang');
 $label2=__('Max 100 characters.', 'snup-lang');
+$label3=__('Custom teaser title.', 'snup-lang');
+$label4=__('Show only in the SNUP Widget until the post is published.', 'snup-lang');
 
 ?>
     <p>
+    <label><b><?php echo esc_html_e($label3);?></b></label><br>
+    <label><?php echo esc_html_e($label4);?></label><br>
+    <input type="text" name="snup_custom_title" size="50" value="<?php echo esc_textarea($snup_custom_title);?>"></textarea><br><br>
     <label><b><?php echo esc_html_e($label1);?></b></label><br>
     <label><?php echo esc_html_e($label2);?></label><br>
-    <textarea style="resize:none" name="snuptext" rows="3" cols="100%" maxlength="100"><?php echo esc_textarea($snuptext);?></textarea>
+    <textarea style="resize:none" name="snuptext" rows="3" cols="75%" maxlength="100"><?php echo esc_textarea($snuptext);?></textarea>
     </p>
     
 
@@ -285,14 +291,19 @@ function snup_save_meta($post_id) {
     if ( ! isset( $_POST['snuptext'] ) ) {
         return;
     }
+    if ( ! isset( $_POST['snup_custom_title'] ) ) {
+        return;
+    }
 
     
 //Sanitize user input.
     $snuptext = sanitize_textarea_field( $_POST['snuptext'] );
+    $snup_custom_title = sanitize_textarea_field( $_POST['snup_custom_title'] );
 
 
 //Update the meta field in the databse.
     update_post_meta( $post_id, 'snuptext', $snuptext );
+    update_post_meta( $post_id, 'snup_custom_title', $snup_custom_title );
 }
 
 
@@ -336,20 +347,22 @@ foreach ($the_query->posts as $post) {
   }
   
   $items[] = sprintf(
-    '<li>
-      %s
-      <div class="snup_title">%s</div>
-      <div class="snup_text">%s</div>
-      <div class="snup_published">%s</div>
-      <div class="snup_day">%s</div> 
-      <div class="snup_time">%s</div>
-    </li>',
+    '<ul class="snup_ul">
+        <li>
+        %s
+        <div class="snup_custom_title">%s</div>
+        <div class="snup_text">%s</div>
+        <div class="snup_published">%s</div>
+        <div class="snup_day">%s</div> 
+        <div class="snup_time">%s</div>
+        </li>
+    </ul>',
     get_the_post_thumbnail($post),
-    esc_html( $post->post_title ),
+    esc_html( $post->snup_custom_title ),
     esc_html( $snuptext ),
     esc_html__('Published:', 'snup-lang'),
     get_the_time(strtotime($DateValue), 'snup-lang'), 
-    get_the_time('l d.m.Y H:i', $post)
+    get_the_time('l d.m.Y H:i', $post),
   );
 }
 
